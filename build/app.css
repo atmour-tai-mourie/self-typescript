@@ -135,14 +135,6 @@ button:active {
   margin: 0;
 }
 
-.droppable {
-  background: #ffe3ee;
-}
-
-#finished-projects .droppable {
-  background: #d6e1ff;
-}
-
 #user-input {
   margin: 1rem;
   padding: 1rem;
