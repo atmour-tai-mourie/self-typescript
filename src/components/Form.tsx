@@ -29,6 +29,14 @@ function Form(props: FormProps) {
 
   function submitProject(event: React.FormEvent<HTMLButtonElement>) {
     event.preventDefault();
+    if (!project.title) {
+      alert("Please enter a title for this project");
+      return;
+    }
+    if (!project.description) {
+      alert("Please enter a description for this project");
+      return;
+    }
     props.addNewProject(project);
     setProject({
       id: project.id + 1,
