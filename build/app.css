@@ -19,7 +19,7 @@ main {
   gap: 2vh;
 }
 
-#form-container {
+.form-container {
   border: 1px solid #ff0062;
   padding: 15px;
   max-width: 90%;
@@ -86,14 +86,6 @@ button:active {
   align-items: center;
 }
 
-#finished-projects {
-  border-color: #0044ff;
-}
-
-#finished-projects header {
-  background: #0044ff;
-}
-
 .projects h2 {
   margin: 0;
   color: white;
@@ -116,10 +108,6 @@ button:active {
   margin: 0.5rem 0;
 }
 
-#finished-projects li h2 {
-  color: #0044ff;
-}
-
 .projects li h3 {
   color: #575757;
   font-size: 1rem;
@@ -133,6 +121,47 @@ button:active {
 
 .project li p {
   margin: 0;
+}
+
+#finished-projects {
+  border-color: #0044ff;
+}
+
+#finished-projects header {
+  background: #0044ff;
+}
+
+#finished-projects {
+  border-color: #0044ff;
+}
+
+#finished-projects header {
+  background: #0044ff;
+}
+
+#finished-projects .project-container {
+  border: 1px solid #0044ff;
+  padding: 15px;
+  margin: 10px;
+}
+
+#finished-projects li h2 {
+  color: #0044ff;
+}
+
+#finished-projects button {
+  font: inherit;
+  background: #0044ff;
+  border: 1px solid #0044ff;
+  cursor: pointer;
+  color: white;
+  padding: 0.75rem 1rem;
+}
+
+#finished-projects button:hover,
+button:active {
+  background: #0030b4;
+  border-color: #0030b4;
 }
 
 #user-input {

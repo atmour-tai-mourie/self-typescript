@@ -10,7 +10,7 @@ type ProjectsProps = {
 
 function IncompleteProjects(props: ProjectsProps) {
   return (
-    <section className="projects">
+    <section className="projects" id="incomplete-projects">
       <header>
         <h2>Projects</h2>
       </header>
