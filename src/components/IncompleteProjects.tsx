@@ -1,10 +1,11 @@
 import * as React from "react";
 
-import { Project as ProjectType } from "./App";
+import { ProjectType } from "./App";
 import Project from "./Project";
 
 type ProjectsProps = {
   projects: ProjectType[];
+  updateCompletionStatus: (a: number, b: boolean) => void;
 };
 
 function IncompleteProjects(props: ProjectsProps) {
@@ -14,9 +15,15 @@ function IncompleteProjects(props: ProjectsProps) {
         <h2>Projects</h2>
       </header>
       <ul>
-        {props.projects.map((project, index) => (
-          <Project key={index} project={project} />
-        ))}
+        {props.projects
+          .filter((project) => !project.completed)
+          .map((project, index) => (
+            <Project
+              key={index}
+              project={project}
+              updateCompletionStatus={props.updateCompletionStatus}
+            />
+          ))}
       </ul>
     </section>
   );

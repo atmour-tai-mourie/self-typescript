@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import { Project } from "./App";
+import { ProjectType } from "./App";
 
 type FormProps = {
-  addNewProject: (a: Project) => void;
+  addNewProject: (a: ProjectType) => void;
 };
 
 function Form(props: FormProps) {

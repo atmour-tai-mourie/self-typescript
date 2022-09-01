@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import { Project as ProjectType } from "./App";
+import { ProjectType } from "./App";
 import Project from "./Project";
 
 type ProjectsProps = {
   projects: ProjectType[];
-  updateCompletionStatus: (a: ProjectType[], b: number, c: Boolean) => void;
+  updateCompletionStatus: (a: number, b: boolean) => void;
 };
 
 function CompletedProjects(props: ProjectsProps) {
@@ -18,7 +18,11 @@ function CompletedProjects(props: ProjectsProps) {
         {props.projects
           .filter((project) => project.completed)
           .map((project, index) => (
-            <Project key={index} project={project} />
+            <Project
+              key={index}
+              project={project}
+              updateCompletionStatus={props.updateCompletionStatus}
+            />
           ))}
       </ul>
     </section>

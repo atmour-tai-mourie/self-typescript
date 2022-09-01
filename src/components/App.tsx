@@ -3,7 +3,7 @@ import Form from "./Form";
 import IncompleteProjects from "./IncompleteProjects";
 import CompletedProjects from "./CompletedProjects";
 
-export type Project = {
+export type ProjectType = {
   id: number;
   title: string;
   description: string;
@@ -12,30 +12,29 @@ export type Project = {
 };
 
 function App() {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<ProjectType[]>([]);
 
-  function addNewProject(newProject: Project) {
+  function addNewProject(newProject: ProjectType) {
     setProjects([...projects, newProject]);
   }
 
-  const IncompleteProjectsArr = projects.filter(
-    (project) => !project.completed
-  );
-
-  function updateCompletionStatus(
-    projects: Project[],
-    projectId: number,
-    newStatus: Boolean
-  ) {
-    projects.map((project) =>
-      project.id === projectId ? { ...project, completed: newStatus } : project
+  function updateCompletionStatus(projectId: number, newStatus: boolean) {
+    setProjects(
+      projects.map((project) =>
+        project.id === projectId
+          ? { ...project, completed: newStatus }
+          : project
+      )
     );
   }
 
   return (
     <main>
       <Form addNewProject={addNewProject} />
-      <IncompleteProjects projects={projects} />
+      <IncompleteProjects
+        projects={projects}
+        updateCompletionStatus={updateCompletionStatus}
+      />
       <CompletedProjects
         projects={projects}
         updateCompletionStatus={updateCompletionStatus}
