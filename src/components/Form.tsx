@@ -44,7 +44,12 @@ function Form(props: FormProps) {
       <form>
         <div className="form-control">
           <label htmlFor="title">Title</label>
-          <input type="text" id="title" onChange={updateTitle} />
+          <input
+            type="text"
+            id="title"
+            onChange={updateTitle}
+            value={project.title}
+          />
         </div>
         <div className="form-control">
           <label htmlFor="description">Description</label>
@@ -52,6 +57,7 @@ function Form(props: FormProps) {
             id="description"
             rows={3}
             onChange={updateDescription}
+            value={project.description}
           ></textarea>
         </div>
         <div className="form-control">
@@ -63,6 +69,10 @@ function Form(props: FormProps) {
             min="0"
             max="10"
             onChange={updateNumber}
+            value={project.number}
+            onKeyDown={(event) => {
+              event.preventDefault();
+            }}
           />
         </div>
         <button onClick={submitProject}>ADD PROJECT</button>
