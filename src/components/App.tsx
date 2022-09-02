@@ -28,15 +28,18 @@ function App() {
     );
   }
 
+  const completedProjects = projects.filter((project) => project.completed);
+  const incompleteProjects = projects.filter((project) => !project.completed);
+
   return (
     <main>
       <Form addNewProject={addNewProject} />
       <IncompleteProjects
-        projects={projects}
+        projects={incompleteProjects}
         updateCompletionStatus={updateCompletionStatus}
       />
       <CompletedProjects
-        projects={projects}
+        projects={completedProjects}
         updateCompletionStatus={updateCompletionStatus}
       />
     </main>

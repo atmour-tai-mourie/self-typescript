@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { ProjectType } from "./App";
 
 type FormProps = {
-  addNewProject: (a: ProjectType) => void;
+  addNewProject: (newProject: ProjectType) => void;
 };
 
-function Form(props: FormProps) {
+function Form({ addNewProject }: FormProps) {
   const [project, setProject] = useState({
     id: 1,
     title: "",
@@ -37,7 +37,7 @@ function Form(props: FormProps) {
       alert("Please enter a description for this project");
       return;
     }
-    props.addNewProject(project);
+    addNewProject(project);
     setProject({
       id: project.id + 1,
       title: "",
